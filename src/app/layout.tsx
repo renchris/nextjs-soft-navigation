@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Link from 'next/link'
+import styles from './page.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,52 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${styles.body}`}>
+        <main className={styles.main}>
+          {children}
+          <div className={styles.grid}>
+            <Link
+              href="/link-1"
+              className={styles.card}
+            >
+              <h2>
+                Link 1 <span>-&gt;</span>
+              </h2>
+              <p>Find in-depth information about Next.js features and API.</p>
+            </Link>
+            <Link
+              href="/link-2"
+              className={styles.card}
+            >
+              <h2>
+                Link 2 <span>-&gt;</span>
+              </h2>
+              <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
+            </Link>
+            <Link
+              href="/link-3"
+              className={styles.card}
+            >
+              <h2>
+                Link 3 <span>-&gt;</span>
+              </h2>
+              <p>Explore starter templates for Next.js.</p>
+            </Link>
+
+            <Link
+              href="/"
+              className={styles.card}
+            >
+              <h2>
+                Home <span>-&gt;</span>
+              </h2>
+              <p>
+                Instantly deploy your Next.js site to a shareable URL with Vercel.
+              </p>
+            </Link>
+          </div>
+        </main>
+      </body>
     </html>
   )
 }
